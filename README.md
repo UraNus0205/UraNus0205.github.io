@@ -38,15 +38,19 @@
 
 :snowflake:[Java并发](Markdown/Java并发)
 
-:snowflake:[J.U.C]()
+:snowflake:[J.U.C](Markdown/J.U.C)
 
 ## 网络编程
 
 :snowflake:[Java网络编程]()​
 
+## 设计模式
+
+:snowflake:[设计模式](Markdown/设计模式)
+
 # 数据结构与算法
 
-:snowflake:[Leetcode]()
+:snowflake:[LeetCode](Markdown/LeetCode)
 
 # 其他
 
