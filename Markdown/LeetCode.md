@@ -1724,6 +1724,8 @@ public:
 
 ## [剑指 Offer 43. 1～n 整数中 1 出现的次数(Hard)](https://leetcode-cn.com/problems/1nzheng-shu-zhong-1chu-xian-de-ci-shu-lcof/)
 
+[解析](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/57nyhd/)
+
 ```c++
 class Solution {
 public:
@@ -1741,6 +1743,72 @@ public:
             digit*=10;
         }
         return res;
+    }
+};
+```
+
+## [剑指 Offer 44. 数字序列中某一位的数字](https://leetcode-cn.com/problems/shu-zi-xu-lie-zhong-mou-yi-wei-de-shu-zi-lcof/)
+
+[解析](https://leetcode-cn.com/leetbook/read/illustration-of-algorithm/57w6b3/)
+
+```c++
+class Solution {
+public:
+    int findNthDigit(int n) {
+        int digit=1;
+        int start=1;
+        long count=9;
+        long sum;
+        while(n>count)
+        {
+            n-=count;
+            digit+=1;//1 2 3
+            start*=10;//1 10 100
+            sum=9*start;
+            count=sum*digit;
+        }
+        long num=start+(n-1)/digit;
+        return to_string(num)[(n-1)%digit]-'0';
+    }
+};
+```
+
+## [剑指 Offer 62. 圆圈中最后剩下的数字](https://leetcode-cn.com/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/)
+
+```c++
+class Solution {
+public:
+    int lastRemaining(int n, int m) {
+        int x=0;
+        for(int i=2;i<=n;i++){
+            x=(x+m)%i;
+        }
+        return x;
+    }
+};
+```
+
+## [剑指 Offer 66. 构建乘积数组](https://leetcode-cn.com/problems/gou-jian-cheng-ji-shu-zu-lcof/)
+
+```c++
+class Solution {
+public:
+    vector<int> constructArr(vector<int>& a) {
+        int len=a.size();
+        if(len==0)return {};
+        vector<int> b(len,1);
+        b[0]=1;
+        for(int i=1;i<len;i++)
+        {
+            b[i]=b[i-1]*a[i-1];
+        }
+        int tmp=1;
+        for(int i=len-2;i>=0;i--)
+        {
+            tmp*=a[i+1];
+            b[i]*=tmp;
+        }
+        return b;
     }
 };
 ```
